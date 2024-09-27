@@ -1,0 +1,17 @@
+/* hero.css */
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@400;700&display=swap');
+
+body {
+    font-family: 'Changa', sans-serif;
+}
+
+.custom-equal-sign {
+    list-style-type: none; /* Remove the bullet point */
+}
+
+.custom-equal-sign::before {
+    content: "="; /* Replace bullet point with an equal sign */
+    margin-right: 8px; /* Adjust spacing between the equal sign and the text */
+    color: black; /* Set the color for the equal sign */
+}
+
