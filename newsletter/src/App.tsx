@@ -1,39 +1,30 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Newsletter from './components/newsletter';
 import Test from "./components/test";
+import Blaze from './components/Landing/blaze';
+import Login from './components/Auth/login';
+import SignUp from "./components/Auth/signup";
+import PrivateRoute from './components/privateroute.tsx'; // Import PrivateRoute
 import PostHogPageViewTracker from './components/postHogPageViewTracker';
 
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import Blaze from './components/Landing/blaze';
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Router>
         <PostHogPageViewTracker />
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Newsletter</Link>
-            </li>
-            <li>
-              <Link to="/test">Test Page</Link>
-            </li>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-          </ul>
-        </nav> */}
-
         <Routes>
           <Route path="/" element={<Newsletter />} />
-          <Route path="/test" element={<Test />} />
+          <Route 
+            path="/test" 
+            element={
+              <PrivateRoute>
+                <Test />
+              </PrivateRoute>
+            } 
+          />
           <Route path="/home" element={<Blaze />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
     </>
