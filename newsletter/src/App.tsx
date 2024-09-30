@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Newsletter from './components/newsletter';
-import Test from "./components/test";
+import Test from "./components/mainpage.tsx";
 import Blaze from './components/Landing/blaze';
 import Login from './components/Auth/login';
 import SignUp from "./components/Auth/signup";
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Newsletter />} />
           <Route 
-            path="/test" 
+            path="/mainpage" 
             element={
               <PrivateRoute>
                 <Test />

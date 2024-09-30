@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase.ts";
+import { auth } from "../../../firebase.ts"; // Firebase initialization
 
 const SignUp: React.FC = () => {
     const navigate = useNavigate();
@@ -13,44 +13,44 @@ const SignUp: React.FC = () => {
         e.preventDefault();
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            navigate("/test");
+            navigate("/mainpage");
         } catch (error) {
             setError("Sign up failed. Please try again.");
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <h2 className="text-2xl font-bold mb-6">Sign up for Blaze</h2>
-                {error && <p className="text-red-500">{error}</p>}
-                
-                <form onSubmit={handleSignUp}>
+        <div className="min-h-screen flex items-center justify-center" data-theme="dark">
+            <div className="bg-base-200 p-8 rounded-lg shadow-md text-center w-full max-w-md">
+                <h2 className="text-2xl font-bold mb-6 text-white">Sign up for Blaze</h2>
+                {error && <p className="text-red-500 mb-4">{error}</p>}
+
+                <form onSubmit={handleSignUp} className="flex flex-col">
                     <input
                         type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mb-3 p-2 border border-gray-300 rounded"
+                        className="input input-bordered w-full mb-3"
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="mb-3 p-2 border border-gray-300 rounded"
+                        className="input input-bordered w-full mb-4"
                     />
                     <button
                         type="submit"
-                        className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                        className="btn btn-primary w-full"
                     >
                         Sign Up
                     </button>
                 </form>
 
-                <p className="mt-4">
+                <p className="mt-4 text-gray-300">
                     Already have an account?{" "}
-                    <button className="text-blue-600 underline" onClick={() => navigate("/login")}>
+                    <button className="text-primary underline" onClick={() => navigate("/login")}>
                         Login
                     </button>
                 </p>
