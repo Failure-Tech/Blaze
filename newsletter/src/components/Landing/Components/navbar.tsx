@@ -42,9 +42,9 @@ const Navbar: React.FC = () => {
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#pricing">Demo</a></li>
                         <li>
-                            <a href="#demo">Demo</a>
+                            <a href="#demo">Pricing</a>
                             <ul className="p-2">
                                 <li><a href="#faq">FAQ</a></li>
                                 <li><a href="/test">Test</a></li>
@@ -61,8 +61,8 @@ const Navbar: React.FC = () => {
 
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-8">
-                    <li><a href="#pricing" className="text-gray-300 hover:bg-gray-700">Pricing</a></li>
-                    <li><a href="#demo" className="text-gray-300 hover:bg-gray-700">Demo</a></li>
+                    <li><a href="#pricing" className="text-gray-300 hover:bg-gray-700">Demo</a></li>
+                    <li><a href="#demo" className="text-gray-300 hover:bg-gray-700">Pricing</a></li>
                     <li><a href="#faq" className="text-gray-300 hover:bg-gray-700">FAQ</a></li>
                 </ul>
             </div>

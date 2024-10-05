@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Newsletter from './components/newsletter';
 import Test from "./components/mainpage.tsx";
 import Blaze from './components/Landing/blaze';
 import Login from './components/Auth/login';
@@ -13,7 +12,6 @@ function App() {
       <Router>
         <PostHogPageViewTracker />
         <Routes>
-          <Route path="/" element={<Newsletter />} />
           <Route 
             path="/mainpage" 
             element={
@@ -22,7 +20,7 @@ function App() {
               </PrivateRoute>
             } 
           />
-          <Route path="/home" element={<Blaze />} />
+          <Route path="/" element={<Blaze />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>

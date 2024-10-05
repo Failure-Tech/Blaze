@@ -1,10 +1,9 @@
-// src/pages/Hero.tsx
-
 import React from "react";
 import Navbar from "./navbar.tsx"; // Adjust the path based on your project structure
 import Newsletter from "../../newsletter.tsx";
 import { FiArrowRight } from 'react-icons/fi';
 import './hero.css';
+import Faq from "./faq.tsx";
 
 const Hero: React.FC = () => {
     return (
@@ -45,7 +44,15 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
 
-                <Newsletter />
+                {/* Adding more space between the previous section and FAQ */}
+                <div className="mt-16 mb-0"> 
+                    <Faq />
+                </div>
+
+                {/* Removing the space between FAQ and Newsletter */}
+                <div className="mt-0">
+                    <Newsletter />
+                </div>
             </div>
         </div>
     );
