@@ -1,6 +1,5 @@
 import React from "react";
 import MailchimpSubscribe, { EmailFormFields } from "react-mailchimp-subscribe";
-// import "./Newsletter.css"; // Import your custom CSS for any additional styling
 
 // Define the URL for Mailchimp subscription
 const url = import.meta.env.VITE_MAILCHIMP_URL;
@@ -22,41 +21,75 @@ const SimpleForm: React.FC<SimpleFormProps> = ({ onSubmitted }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-control w-full max-w-xs">
-      <input
-        className="input input-sm input-bordered w-full mb-2 bg-base-200 text-gray-300"
-        type="email"
-        name="EMAIL"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter Email"
-        required
-      />
-      <button
-        type="submit"
-        className="btn btn-sm btn-primary w-auto"
-      >
-        Notify Me
-      </button>
+    <form onSubmit={handleSubmit} className="w-full">
+      <fieldset className="form-control w-full max-w-lg">
+        <label className="label">
+          <span className="label-text">Enter your email address</span>
+        </label>
+        <div className="flex">
+          <input
+            className="input input-bordered flex-grow"
+            type="email"
+            name="EMAIL"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="username@site.com"
+            required
+          />
+          <button type="submit" className="btn btn-primary ml-2">
+            Subscribe
+          </button>
+        </div>
+      </fieldset>
     </form>
   );
 };
 
-// Combine the functionality with the design layout
+// Combine the functionality with the footer design layout
 const Newsletter: React.FC = () => (
-  <div className="bg-base-900 text-white p-4 rounded-lg">
-    <div className="grid lg:grid-cols-2 gap-4 items-center">
-      <div>
-        <h1 className="text-xl font-bold">Lorem Ipsum Dolor</h1>
-        <p className="text-gray-400 mt-1 text-sm">
-          Sign up to our newsletter and stay up to date.
-        </p>
-      </div>
-      <div>
+  <footer className="footer bg-base-200 text-base-content p-10">
+    <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
+      {/* Services Section */}
+      <nav>
+        <h6 className="footer-title">Services</h6>
+        <a className="link link-hover">Branding</a>
+        <br />
+        <a className="link link-hover">Design</a>
+        <br />
+        <a className="link link-hover">Marketing</a>
+        <br />
+        <a className="link link-hover">Advertisement</a>
+      </nav>
+
+      {/* Company Section */}
+      <nav>
+        <h6 className="footer-title">Company</h6>
+        <a className="link link-hover">About us</a>
+        <br />
+        <a className="link link-hover">Contact</a>
+        <br />
+        <a className="link link-hover">Jobs</a>
+        <br />
+        <a className="link link-hover">Press kit</a>
+      </nav>
+
+      {/* Legal Section */}
+      <nav>
+        <h6 className="footer-title">Legal</h6>
+        <a className="link link-hover">Terms of use</a>
+        <br />
+        <a className="link link-hover">Privacy policy</a>
+        <br />
+        <a className="link link-hover">Cookie policy</a>
+      </nav>
+
+      {/* Newsletter Section */}
+      <div className="col-span-1 lg:col-span-1">
+        <h6 className="footer-title">Newsletter</h6>
         <MailchimpSubscribe
           url={url}
           render={({ subscribe, status, message }) => (
-            <div>
+            <div className="max-w-lg">
               <SimpleForm onSubmitted={(formData: EmailFormFields) => subscribe(formData)} />
               {status === "sending" && <div className="text-blue-400 text-sm">Sending...</div>}
               {status === "error" && (
@@ -66,13 +99,9 @@ const Newsletter: React.FC = () => (
             </div>
           )}
         />
-        <p className="text-gray-500 mt-2 text-xs">
-          We care about the protection of your data. Read our{" "}
-          <span className="text-primary">Privacy Policy.</span>
-        </p>
       </div>
     </div>
-  </div>
+  </footer>
 );
 
 export default Newsletter;

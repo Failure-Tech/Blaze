@@ -4,6 +4,7 @@ import Newsletter from "../../newsletter.tsx";
 import { FiArrowRight } from 'react-icons/fi';
 import './hero.css';
 import Faq from "./faq.tsx";
+import Stripecard from "./stripecard.tsx";
 
 const Hero: React.FC = () => {
     return (
@@ -30,22 +31,12 @@ const Hero: React.FC = () => {
                     </button>
                 </div>
 
-                <div className="mt-12 card w-full max-w-xs bg-base-300 shadow-xl">
-                    <div className="card-body">
-                        <h2 className="card-title text-white">Lorem Ipsum</h2>
-                        <ul className="list-disc list-inside text-gray-300">
-                            <li><span className="text-accent">Lorem ipsum</span> dolor sit</li>
-                            <li><span className="text-accent">Amet</span> consectetur</li>
-                            <li><span className="text-accent">Adipiscing</span> elit</li>
-                            <li><span className="text-accent">Nulla</span> venenatis</li>
-                            <li><span className="text-accent">Metus</span> vehicula</li>
-                            <li><span className="text-accent"><strong>Efficientia</strong></span> time saved</li>
-                        </ul>
-                    </div>
+                <div className="mt-8">
+                    <Stripecard />
                 </div>
 
                 {/* Adding more space between the previous section and FAQ */}
-                <div className="mt-16 mb-0"> 
+                <div className="mt-8"> 
                     <Faq />
                 </div>
 
