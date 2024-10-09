@@ -12,7 +12,7 @@ export const plans = [
         price: 19.99,
         duration: '/month',
         name: 'Starter Plan',
-        features: ['NextJS boilerplate', 'User oauth', 'Database', 'Emails', '1 year of updates', '24/7 support'],
+        features: ['ReactJs boilerplate', 'User oauth', 'Database', 'Emails', '1 year of updates', '24/7 support'],
     },
     {
         link: import.meta.env.VITE_YEARLY_PAYMENT_LINK,
